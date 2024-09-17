@@ -15,23 +15,24 @@
 
  // Preprocessor directives
 #include <random>
+#include <iostream>
 
 
 int main()
 {
 	// Create a vector of strings; add items using a list initializer
-	vector<String> movies = "Godzilla vs Godzilla", "No Time to Sneeze", "Deadpool & Hooch", "Titanic 4: Citizens on Patrol";
+	std::vector<std::string> movies = { "Godzilla vs Godzilla", "No Time to Sneeze", "Deadpool & Hooch", "Titanic 4: Citizens on Patrol" };
 
 	// Add a 5th string to the end of the vector
-	movies.add("Despicable Me 4");
+	movies.push_back("Despicable Me 4");
 
 	// Announce the nominees
-	cout << "And the nominees for Best Picture are..." >> endl;
+	std::cout << "And the nominees for Best Picture are..." << std::endl;
 
 	// Loop through the vector; print each vector element to console.
-	for (i = 0; i < movies.Length; i++)
+	for (size_t i = 0; i < movies.size(); i++)
 	{
-		cout << movies.get(i) << endl;
+		std::cout << movies[i] << std::endl;
 	}
 
 	// Set up a random number generator seeder
@@ -44,16 +45,13 @@ int main()
 	int pick_a_number = rand_dist(seed);
 
 	// Get the item from the vector at the randomly-selected index
-	String winner = movies.get[pick_a_number];
+	std::string winner = movies[pick_a_number];
 
 	// Convert each charcter of the 'winner' string to UPPERCASE
-	for (char c : winner)
-	{
-		c = c.toUpper();
-	}
+	std::transform(winner.begin(), winner.end(), winner.begin(), ::toupper);
 
 	// Print the UPPERCASE string
-	cout << endl << "And the winner is..." << winner;
+	std::cout << std::endl << "And the winner is..." << winner << std::endl;
 
 	return 0;
 }
