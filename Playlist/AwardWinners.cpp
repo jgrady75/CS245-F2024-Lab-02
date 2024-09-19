@@ -53,7 +53,7 @@ int main()
 	string winner = movies[pick_a_number];
 
 	// Convert each charcter of the 'winner' string to UPPERCASE
-	for (char c : winner)
+	for (auto &c : winner)
 	{
 		c = toupper(c);
 	}
